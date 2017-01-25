@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>CUSTOM-CUSTOM-clean install site</actionName>
+        <displayName>CUSTOM-clean install site</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>install</goal>
+            <goal>site:site</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-CUSTOM-clean install site -e</actionName>
+        <displayName>CUSTOM-clean install site -e</displayName>
+        <goals>
+            <goal>-e</goal>
+            <goal>clean</goal>
+            <goal>install</goal>
+            <goal>site:site</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-CUSTOM-clean install site -U</actionName>
+        <displayName>CUSTOM-clean install site -U</displayName>
+        <goals>
+            <goal>-U</goal>
+            <goal>clean</goal>
+            <goal>install</goal>
+            <goal>site:site</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-CUSTOM-clean install site -U -X -e</actionName>
+        <displayName>CUSTOM-clean install site -U -X -e</displayName>
+        <goals>
+            <goal>-U</goal>
+            <goal>-X</goal>
+            <goal>-e</goal>
+            <goal>clean</goal>
+            <goal>install</goal>
+            <goal>site:site</goal>
+        </goals>
+    </action>
+</actions>

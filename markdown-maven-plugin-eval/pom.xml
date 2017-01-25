@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.systemresearch</groupId>
+    <artifactId>markdown-baseline</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <name>markdown-maven-plugin-eval</name>
+    <description>Sandbox to explore markdown as supported by maven plugins.</description>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <markdown-page-generator-plugin.version>0.10</markdown-page-generator-plugin.version>
+        <markdown-page-generator-plugin.vsch.version>0.12.3</markdown-page-generator-plugin.vsch.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>markdown-page-generator-plugin</artifactId>
+            <version>${markdown-page-generator-plugin.vsch.version}</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- MARKDOWN -->
+            <!-- https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/ -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.6</version>
+                <dependencies>
+                    <!-- https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/xref/index.html --> 
+                    <!-- https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/ -->
+                    <!-- processes ${project.basedir}/src/site/markdown/ -->
+                    <dependency>
+                        <groupId>org.apache.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                            <resources>          
+                                <resource>
+                                    <directory>${project.basedir}/src/site/markdown/markdown_doxia_files/</directory>
+                                    <!-- filtering>true</filtering -->
+                                </resource>
+                            </resources>              
+                        </configuration>            
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- https://github.com/walokra/markdown-page-generator-plugin -->
+            <plugin>
+                <groupId>com.ruleoftech</groupId>
+                <artifactId>markdown-page-generator-plugin</artifactId>
+                <version>${markdown-page-generator-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <inputDirectory>${project.basedir}/src/site/markdown_rt/</inputDirectory>
+                    <!-- default: outputDirectory>${project.build.outputDirectory}/html/</outputDirectory -->
+                    <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                    <headerHtmlFile>${project.basedir}/src/site/markdown_rt/html/header.html</headerHtmlFile>
+                    <footerHtmlFile>${project.basedir}/src/site/markdown_rt/html/footer.html</footerHtmlFile>
+                    <!-- transformRelativeMarkdownLinks : Transform relative url suffix from ".md" to ".html" if option true. Default false. -->
+                    <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
+                    <!-- org.pegdown.Extensions default: TABLES -->
+                    <!-- https://github.com/sirthias/pegdown/ pegdown extension list -->
+                    <!-- ANCHORLINKS, WIKILINKS,  -->
+                    <pegdownExtensions>
+                        HARDWRAPS,
+                        AUTOLINKS,
+                        TABLES,
+                        FENCED_CODE_BLOCKS,
+                        STRIKETHROUGH
+                    </pegdownExtensions>
+                    <!-- copyDirectories>css,js,images</copyDirectories -->
+                    <copyDirectories>markdown_ruleoftech_files</copyDirectories>
+                    <!-- default: 2000 milliseconds -->
+                    <!-- parsingTimeoutInMillis>2000</parsingTimeoutInMillis -->
+                    <!-- default: ${project.build.sourceEncoding}-->
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                </configuration>
+            </plugin>
+            <!-- https://github.com/vsch/markdown-page-generator-plugin -->
+            <plugin>
+                <groupId>com.vladsch.flexmark</groupId>
+                <artifactId>markdown-page-generator-plugin</artifactId>
+                <version>${markdown-page-generator-plugin.vsch.version}</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <inputDirectory>${project.basedir}/src/site/markdown_vsch/</inputDirectory>
+                    <!-- default: outputDirectory>${project.build.outputDirectory}/html/</outputDirectory -->
+                    <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                    <headerHtmlFile>${project.basedir}/src/site/markdown_vsch/html/header.html</headerHtmlFile>
+                    <footerHtmlFile>${project.basedir}/src/site/markdown_vsch/html/footer.html</footerHtmlFile>
+                    <!-- transformRelativeMarkdownLinks : Transform relative url suffix from ".md" to ".html" if option true. Default false. -->
+                    <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
+                    <!-- org.pegdown.Extensions default: TABLES -->
+                    <!-- https://github.com/sirthias/pegdown/ pegdown extension list -->
+                    <!-- ANCHORLINKS, WIKILINKS,  -->
+                    <pegdownExtensions>
+                        HARDWRAPS,
+                        AUTOLINKS,
+                        TABLES,
+                        FENCED_CODE_BLOCKS,
+                        STRIKETHROUGH
+                    </pegdownExtensions>
+                    <!-- copyDirectories>css,js,images</copyDirectories -->
+                    <copyDirectories>markdown_vsch_files</copyDirectories>
+                    <!-- default: 2000 milliseconds -->
+                    <!-- parsingTimeoutInMillis>2000</parsingTimeoutInMillis -->
+                    <!-- default: ${project.build.sourceEncoding}-->
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

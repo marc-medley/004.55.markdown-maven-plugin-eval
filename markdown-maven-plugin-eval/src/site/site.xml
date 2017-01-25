@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2017 American Medical Association. All rights reserved.
+    Confidential and Proprietary.
+  -->
+<project xmlns="http://maven.apache.org/DECORATION/1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd"
+         name="Settings Management">
+
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.6</version>
+  </skin>
+
+  <body>
+    <menu name="Main">
+      <item name="Welcome" href="index.html" />
+      <item name="Markdown Doxia" href="markdown_doxia.html" />
+      <item name="Markdown Rule of Tech" href="markdown_ruleoftech.html" />
+      <item name="Markdown vsch" href="markdown_vsch.html" />
+    </menu>
+    <menu ref="reports" />
+  </body>
+
+</project>
