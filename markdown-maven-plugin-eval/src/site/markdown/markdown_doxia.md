@@ -237,8 +237,8 @@ Inline-style (HTTP)
 `![alt text](https://github.com/…/images/icon48.png "Title Text")`
 
 Inline-style (relative)  
-[![alt text](markdown_doxia_files/figure1.png "Title 1")](markdown_doxia_files/figure1.png)  
-`![alt text](markdown_doxia_files/figure1.png "Title 1")`
+[![alt text](markdown_doxia_files/figure1.png "Figure 1")](markdown_doxia_files/figure1.png)  
+`![alt text](markdown_doxia_files/figure1.png "Figure 1")`
 
 (relative, clickable)
 

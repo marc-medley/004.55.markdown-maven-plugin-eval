@@ -20,10 +20,11 @@
         </goals>
     </action>
     <action>
-        <actionName>CUSTOM-CUSTOM-clean install site -U</actionName>
-        <displayName>CUSTOM-clean install site -U</displayName>
+        <actionName>CUSTOM-CUSTOM-clean install site -X -e</actionName>
+        <displayName>CUSTOM-clean install site -X -e</displayName>
         <goals>
-            <goal>-U</goal>
+            <goal>-X</goal>
+            <goal>-e</goal>
             <goal>clean</goal>
             <goal>install</goal>
             <goal>site:site</goal>
