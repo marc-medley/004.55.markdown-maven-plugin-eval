@@ -1,4 +1,4 @@
-`markdown-page-generator-plugin`
+`walokra/markdown-page-generator-plugin`
 ================================
 
 [GitHub: walokra/markdown-page-generator-plugin 🌐](https://github.com/walokra/markdown-page-generator-plugin)

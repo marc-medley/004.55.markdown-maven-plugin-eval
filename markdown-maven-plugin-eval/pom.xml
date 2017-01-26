@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.systemresearch</groupId>
+    <groupId>com.example.marc-medley</groupId>
     <artifactId>markdown-maven-plugin-eval</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -92,13 +92,7 @@
                     <!-- org.pegdown.Extensions default: TABLES -->
                     <!-- https://github.com/sirthias/pegdown/ pegdown extension list -->
                     <!-- ANCHORLINKS, WIKILINKS,  -->
-                    <pegdownExtensions>
-                        HARDWRAPS,
-                        AUTOLINKS,
-                        TABLES,
-                        FENCED_CODE_BLOCKS,
-                        STRIKETHROUGH
-                    </pegdownExtensions>
+                    <pegdownExtensions>HARDWRAPS,AUTOLINKS,TABLES,FENCED_CODE_BLOCKS,STRIKETHROUGH</pegdownExtensions>
                     <!-- copyDirectories>css,js,images</copyDirectories -->
                     <copyDirectories>markdown_ruleoftech_files</copyDirectories>
                     <!-- default: 2000 milliseconds -->
@@ -124,25 +118,23 @@
                 <configuration>
                     <inputDirectory>${project.basedir}/src/site/markdown_vsch/</inputDirectory>
                     <!-- default: outputDirectory>${project.build.outputDirectory}/html/</outputDirectory -->
+                    <!-- recursiveInput: Process inputDirectory subdirectories if option true. Default: false --> 
+                    <!-- recursiveInput>true</recursiveInput -->
                     <outputDirectory>${project.build.directory}/site/</outputDirectory>
                     <headerHtmlFile>${project.basedir}/src/site/markdown_vsch/html/header.html</headerHtmlFile>
                     <footerHtmlFile>${project.basedir}/src/site/markdown_vsch/html/footer.html</footerHtmlFile>
                     <!-- transformRelativeMarkdownLinks : Transform relative url suffix from ".md" to ".html" if option true. Default false. -->
                     <transformRelativeMarkdownLinks>true</transformRelativeMarkdownLinks>
                     <!-- org.pegdown.Extensions default: TABLES -->
-                    <!-- https://github.com/sirthias/pegdown/ pegdown extension list -->
+                    <!-- https://github.com/vsch/markdown-page-generator-plugin extension list -->
                     <!-- ANCHORLINKS, WIKILINKS,  -->
-                    <pegdownExtensions>
-                        HARDWRAPS,
-                        AUTOLINKS,
-                        TABLES,
-                        FENCED_CODE_BLOCKS,
-                        STRIKETHROUGH
-                    </pegdownExtensions>
+                    <!-- RELAXEDHRULES: allow horizontal rules without a blank line following them -->
+                    <!-- TASKLISTITEMS: parses bullet lists of the form * [ ], * [x] and * [X] --> 
+                    <!-- FOOTNOTES: MultiMarkdown style footnotes: [^n] for footnote reference and [^n]: `Footnote text` -->
+                    <pegdownExtensions>HARDWRAPS,AUTOLINKS,TABLES,FENCED_CODE_BLOCKS,STRIKETHROUGH</pegdownExtensions>
+                    
                     <!-- copyDirectories>css,js,images</copyDirectories -->
                     <copyDirectories>markdown_vsch_files</copyDirectories>
-                    <!-- default: 2000 milliseconds -->
-                    <!-- parsingTimeoutInMillis>2000</parsingTimeoutInMillis -->
                     <!-- default: ${project.build.sourceEncoding}-->
                     <inputEncoding>UTF-8</inputEncoding>
                     <outputEncoding>UTF-8</outputEncoding>

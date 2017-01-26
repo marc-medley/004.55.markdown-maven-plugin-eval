@@ -1,5 +1,5 @@
-`markdown-page-generator-plugin` (vsch fork)
-============================================
+`vsch/markdown-page-generator-plugin`
+=====================================
 
 [GitHub: vsch/markdown-page-generator-plugin 🌐](https://github.com/vsch/markdown-page-generator-plugin)
 
