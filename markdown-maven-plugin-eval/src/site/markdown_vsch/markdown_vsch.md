@@ -30,7 +30,7 @@ Heading H2: three or more hyphens [▴](#toc)
 
 _____
 
-Horizontal Rule: at least three asterisks or hyphens (above/below?)
+Horizontal Rule: at least three asterisks `***` or hyphens `---`.
 
 *****
 
@@ -144,14 +144,14 @@ Colons can be used to align columns. The outer pipes (|) are optional.  Needs at
 
 If intra_letter_emphasis is not enabled, then `_` and `*` are are unmodified in a name or equation a=b*c.
 
-|Option name       |&lt;html&gt;| Result if enabled  |
-|------------------|:--------:|----------------------|
-|<em>Emphasis</em> | `<em>`   | So <em>Amazing</em>  |
-|Highlight         | `<mark>` | <mark>So good</mark> |
-|Quote             | `<q>`    | <q>Such editor</q>   |
-|Strikethrough     | `<del>`  | <del>Much wow</del>  |
-|Superscript       | `<sup>`  | hoge<sup>fuga</sup>  |
-|Underline         | `<u>`    | <u>So doge</u>       |
+| Option name       | &lt;html&gt; | Result if enabled  |
+| ----------------- |:--------:| ---------------------- |
+| <em>Emphasis</em> | `<em>`   | So <em>italic</em>     |
+| Highlight         | `<mark>` | <mark>look here</mark> |
+| Quote             | `<q>`    | <q>As I was ...</q>    |
+| Strikethrough     | `<del>`  | <del>strike that</del> |
+| Superscript       | `<sup>`  | foot<sup>note</sup>    |
+| Underline         | `<u>`    | <u>ancient book</u>    |
 
 <table style="width:100%; font-family: monospace;">
 <tr>
@@ -172,9 +172,11 @@ If intra_letter_emphasis is not enabled, then `_` and `*` are are unmodified in 
 </table> 
 
 ***
+
 <a id="Links"></a>
 Links [▴](#toc)
 -----
+
 ###### inline link
 [Markdown Syntax &neArr;](http://www.site.org/ "Daring Fireball Markdown: Syntax")
 
@@ -253,7 +255,7 @@ Inline-style (relative)
 Reference-style (HTTP)  
 ![alt text][logo]  
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Title 2"
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Title 48"
 
 `![alt text][logo]`
 `[logo]: https://github.com/…/images/icon48.png "Title 2"`
