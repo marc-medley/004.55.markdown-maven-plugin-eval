@@ -13,9 +13,16 @@ Of the three options, [`vsch/markdown-page-generator-plugin`](https://github.com
 </attributes>
 ```
 
-Each uses a sample page similat to the Sample Page shown below.  
+Each uses a sample page similar to the Sample Page shown below.  
 
-_Note that the example page includes some markdown extensions which are not supported in github flavored markdown._
+This project also shows a **_hybrid solution_** where a header.html and foot.html based on `doxia-module-markdown generated` html wraps content html generated from `walokra/markdown-page-generator-plugin` (`pegdown`) and `vsch/markdown-page-generator-plugin` (`flexmark-java`).
+
+Thus, `doxia-module-markdown` (`pegdown`) can provide project reports, while `vsch/markdown-page-generator-plugin` (`flexmark-java`) can convert any markdown pages which need something other than `pegdown`.
+
+_Note: the example page includes some markdown extensions which are not supported in github flavored markdown._
+
+_Note: ["pegdown has reached its end of life"](https://github.com/sirthias/pegdown) notice._
+
 
 ---
 
@@ -262,14 +269,14 @@ Inline-style (HTTP)
 `![alt text](https://github.com/…/images/icon48.png "Title Text")`
 
 Inline-style (relative)  
-[![alt text]( markdown_vsch_files/figure1.png "Title 1")]( markdown_vsch_files/figure1.png)  
-`![alt text]( markdown_vsch_files/figure1.png "Title 1")`
+[![alt text](README_files/figure1.png "Title 1")](README_files/figure1.png)  
+`![alt text](README_files/figure1.png "Title 1")`
 
 (relative, clickable)
 
 ```markdown
-[![alt text]( markdown_vsch_files/figure1.png "Title 1")]
-(04.55_Markdown__QREF_files/figure1.png)
+[![alt text](README_files/figure1.png "Title 1")]
+(README_files/figure1.png)
 ```
 
 Reference-style (HTTP)  
@@ -284,39 +291,39 @@ Reference-style (HTTP)
 Reference-style (relative)  
 ![alt text][logo2]
 
-[logo2]: markdown_vsch_files/figure2.png "Title 2"
+[logo2]:README_files/figure2.png "Title 2"
 
 ```markdown
  ![alt text][logo2]
- [logo2]: markdown_vsch_files/figure2.png "Title 2"
+ [logo2]:README_files/figure2.png "Title 2"
 ```
 
 --
 Reference-style (relative, description=reference implicit)  
 ![logo3]
 
-[logo3]: markdown_vsch_files/figure3.png "Title 3"
+[logo3]:README_files/figure3.png "Title 3"
 
 ```markdown
  ![logo3]
- [logo3]: markdown_vsch_files/figure3.png "Title 3"
+ [logo3]:README_files/figure3.png "Title 3"
 ```
 
 HTML Style (Relative) _note: figures 1, 2 & 3 have 120px height._
-<p><img src="markdown_vsch_files/figure4.png"
+<p><img src="README_files/figure4.png"
          alt="figure4"
        title="Figure 4"
        height=120></p> 
 
 ```html
-<p><img src="markdown_vsch_files/figure4.png"
+<p><img src="README_files/figure4.png"
          alt="figure4"
        title="Figure 4"
        width=407
        height=120></p>
 ```
 
-Browser looks for relative "server" path `file:///Users/~/…/markdown_vsch_files/figure3.png`
+Browser looks for relative "server" path `file:///Users/~/…/README_files/figure3.png`
 
 Limitations
 -----------
