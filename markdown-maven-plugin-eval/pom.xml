@@ -9,10 +9,17 @@
     <name>markdown-maven-plugin-eval</name>
     <description>Sandbox to explore markdown as supported by maven plugins.</description>
     
+    <url>https://github.com/marc-medley/004.55.markdown-maven-plugin-eval</url>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <markdown-page-generator-plugin.version>0.10</markdown-page-generator-plugin.version>
-        <markdown-page-generator-plugin.vsch.version>0.12.3</markdown-page-generator-plugin.vsch.version>
+        <markdown-page-generator-plugin.version>1.0.0</markdown-page-generator-plugin.version>
+        <markdown-page-generator-plugin.vsch.version>0.15.4</markdown-page-generator-plugin.vsch.version>
+        
+        <!-- https://maven.apache.org/doxia/doxia/ 1.7 -->
+        <!-- https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/ 1.7 -->
+        <!-- maven-project-info-reports-plugin: 2.9 https://maven.apache.org/plugins/maven-project-info-reports-plugin/  --> 
+        <maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
     </properties>
     
     <dependencies>
@@ -25,6 +32,11 @@
     
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports-plugin.version}</version>
+            </plugin>
             <!-- MARKDOWN -->
             <!-- https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/ -->
             <plugin>
@@ -138,6 +150,10 @@
                     <!-- default: ${project.build.sourceEncoding}-->
                     <inputEncoding>UTF-8</inputEncoding>
                     <outputEncoding>UTF-8</outputEncoding>
+                    
+                    <attributes>
+                        <attribute>TableBlock|class=table table-striped table-bordered</attribute>
+                    </attributes>
                 </configuration>
             </plugin>
         </plugins>

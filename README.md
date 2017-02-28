@@ -1,9 +1,21 @@
 004.55 Markdown Maven Plugin Eval
 =================================
 
-The `markdown-baseline` maven project produces pages for side by side comparison of pages generated from `doxia-module-markdown`, `walokra/markdown-page-generator-plugin` and `vsch/markdown-page-generator-plugin` maven markdown plugins.
+The `markdown-maven-plugin-eval` project produces pages for side by side comparison of pages generated from [`doxia-module-markdown`](https://maven.apache.org/doxia/doxia/doxia-modules/doxia-module-markdown/), [`walokra/markdown-page-generator-plugin`](https://github.com/walokra/markdown-page-generator-plugin) and [`vsch/markdown-page-generator-plugin`](https://github.com/vsch/markdown-page-generator-plugin) maven markdown plugins.
 
-The sample page use for each is shown below.  Note that the example page includes some markdown extensions which are not supported in github flavored markdown. 
+Of the three options, [`vsch/markdown-page-generator-plugin`](https://github.com/vsch/markdown-page-generator-plugin) provides a way to specify class attributes to be added to the generated HTML.  The ability to add class atributes is particulary useful for things like Bootstrap formatted tables.
+
+``` xml
+<attributes>
+    <attribute>TableBlock|class=table table-striped table-bordered</attribute>
+    <attribute>BlockQuote|class=red</attribute>
+    <attribute>OrderedListItem|style="color:red;"</attribute>
+</attributes>
+```
+
+Each uses a sample page similat to the Sample Page shown below.  
+
+_Note that the example page includes some markdown extensions which are not supported in github flavored markdown._
 
 ---
 
@@ -27,6 +39,7 @@ color: red; font-size: 12pt;">
 [Tables](#Tables) |
 [Links](#Links) |
 [Images](#Images) |
+[Resources](#Resources) |
 
 Heading H2: three or more hyphens [▴](#toc)
 ---------------------------------
@@ -308,10 +321,14 @@ Browser looks for relative "server" path `file:///Users/~/…/markdown_vsch_file
 Limitations
 -----------
 
-* Doxia class decorations are not automatically generated.
 
-    `<a class="externalLink" href="…">…</a>`
-
+<a id="Code"></a>
 Resources
 ---------
-[GitHub: vsch/markdown-page-generator-plugin 🌐](https://github.com/vsch/markdown-page-generator-plugin)
+
+[GitHub/sirthias: _pegdown_ 🌐](https://github.com/sirthias/pegdown)  
+[GitHub/sirthias: _pegdown_ test page 🌐](https://github.com/sirthias/pegdown/blob/master/src/test/resources/MarkdownTest103/Markdown%20Documentation%20-%20Syntax.md)    
+[GitHub/walokra: markdown-page-generator-plugin 🌐](https://github.com/walokra/markdown-page-generator-plugin)  
+[GitHub/vsch: flexmark-java 🌐](https://github.com/vsch/flexmark-java)  
+[GitHub/vsch: markdown-page-generator-plugin 🌐](https://github.com/vsch/markdown-page-generator-plugin)  
+[Pegdown Web Site 🌐](http://pegdown.org/)  
